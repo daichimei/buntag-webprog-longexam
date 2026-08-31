@@ -5,7 +5,6 @@ const Footer = () => {
     <footer className="border-t-2 border-yellow-900 bg-[#35408e] px-4 py-10 sm:px-6 lg:px-8 text-zinc-50">
       <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-3">
         
-        {/* Left: Logo */}
         <div className="flex flex-col items-center md:items-start">
           <img
             src={logo}
@@ -16,7 +15,6 @@ const Footer = () => {
           <p className="text-sm text-zinc-300">Campus Essentials</p>
         </div>
 
-        {/* Middle: About */}
         <div>
           <h2 className="text-lg font-semibold text-yellow-400">ABOUT BULLDOGEX</h2>
           <p className="mt-2 text-sm leading-6 text-zinc-200">
@@ -25,7 +23,6 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Right: Contact */}
         <div>
           <h2 className="text-lg font-semibold text-yellow-400">CONTACT US</h2>
           <ul className="mt-2 space-y-2 text-sm text-zinc-200">

@@ -27,10 +27,10 @@ const HomePage = () => {
                             quick storefront.
                         </p>
                         <div className="mt-6 flex flex-wrap justify-end gap-3">
-                            <Button to="/shop/products">
+                            <Button to="/products">
                                 Shop Now
                             </Button>
-                            <Button to="/shop/about" variant="primary">
+                            <Button to="/about" variant="primary">
                                 About Store
                             </Button>
                         </div>
@@ -95,7 +95,7 @@ const HomePage = () => {
                         <p className="mt-3 text-sm leading-6 text-zinc-600">
                             Bags, tumblers, lanyards, and items used every school day.
                         </p>
-                        <Button to="/shop/products" className="mt-4" variant="primary">View Products</Button>
+                        <Button to="/products" className="mt-4" variant="primary">View Products</Button>
                     </article>
 
                     <article className="rounded-3xl border-2 border-zinc-900 bg-white p-4">
@@ -110,7 +110,7 @@ const HomePage = () => {
                         <p className="mt-3 text-sm leading-6 text-zinc-600">
                             Notes, desk tools, and study kits for class and review weeks.
                         </p>
-                        <Button to="/shop/products" className="mt-4" variant="primary">Shop Supplies</Button>
+                        <Button to="/products" className="mt-4" variant="primary">Shop Supplies</Button>
                     </article>
 
                     <article className="rounded-3xl border-2 border-zinc-900 bg-white p-4">
@@ -125,7 +125,7 @@ const HomePage = () => {
                         <p className="mt-3 text-sm leading-6 text-zinc-600">
                             Comfortable pieces for class days, commute days, and weekends.
                         </p>
-                        <Button to="/shop/products" className="mt-4" variant="primary">
+                        <Button to="/products" className="mt-4" variant="primary">
                             View Apparel
                         </Button>
                     </article>

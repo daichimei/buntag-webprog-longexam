@@ -1,10 +1,12 @@
-import { NavLink } from 'react-router-dom';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { NavLink, useNavigate } from 'react-router-dom';
 import logo from '../assets/img/nubdexchange_logo.png';
+import { useAuth } from '../context/AuthContext';
 
 const links = [
-  { label: 'Home', to: '/shop/home' },
-  { label: 'About', to: '/shop/about' },
-  { label: 'Products', to: '/shop/products' },
+  { label: 'Home', to: '/' },
+  { label: 'About', to: '/about' },
+  { label: 'Products', to: '/products' },
 ];
 
 const navLinkClassName = ({ isActive }) =>
@@ -15,7 +17,18 @@ const navLinkClassName = ({ isActive }) =>
       : 'border-transparent text-zinc-500 hover:border-zinc-900 hover:bg-zinc-50 hover:text-zinc-900',
   ].join(' ');
 
+const authButtonClassName =
+  'rounded-full border-2 border-zinc-900 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-zinc-900 transition hover:bg-zinc-900 hover:text-zinc-50';
+
 const NavBar = () => {
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  };
+
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b-2 border-zinc-900 bg-zinc-100/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
@@ -32,7 +45,46 @@ const NavBar = () => {
               {link.label}
             </NavLink>
           ))}
-        </nav>  
+          {user?.role === 'customer' && (
+            <NavLink to="/orders" className={navLinkClassName}>
+              My Orders
+            </NavLink>
+          )}
+        </nav>
+
+        <div className="flex items-center gap-2">
+          {!user ? (
+            <>
+              <NavLink to="/signin" className={authButtonClassName}>
+                Sign In
+              </NavLink>
+              <NavLink to="/signup" className={authButtonClassName}>
+                Sign Up
+              </NavLink>
+            </>
+          ) : (
+            <>
+              {user.role === 'customer' && (
+                <NavLink to="/cart" className={authButtonClassName} aria-label="View cart">
+                  <ShoppingCartIcon fontSize="small" />
+                </NavLink>
+              )}
+              {(user.role === 'admin' || user.role === 'supplier') && (
+                <NavLink to="/dashboard" className={authButtonClassName}>
+                  Dashboard
+                </NavLink>
+              )}
+              {user.role === 'customer' && (
+                <NavLink to="/profile" className={authButtonClassName}>
+                  Profile
+                </NavLink>
+              )}
+              <button type="button" onClick={handleLogout} className={authButtonClassName}>
+                Logout
+              </button>
+            </>
+          )}
+        </div>
       </div>
     </header>
   );

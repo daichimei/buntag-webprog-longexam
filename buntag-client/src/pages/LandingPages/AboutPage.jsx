@@ -33,10 +33,10 @@ const AboutPage = () => {
               BulldogEx Shop highlights clear product categories, quick actions, and straightforward store information — all styled with our signature campus colors.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Button to="/shop/home" variant="primary">
+              <Button to="/" variant="primary">
                 Back Home
               </Button>
-              <Button to="/shop/products">
+              <Button to="/products">
                 Open Products
               </Button>
             </div>
@@ -157,7 +157,7 @@ const AboutPage = () => {
                 />
               </div>
             </div>
-            <Button to="/shop/products" className="mt-5" variant="primary">
+            <Button to="/products" className="mt-5" variant="primary">
               View Products
             </Button>
           </div>

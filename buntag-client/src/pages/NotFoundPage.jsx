@@ -26,7 +26,7 @@ const NotFoundPage = () => {
         </div>
       </section>
 
-       <section className="border-y-2 border-yellow-900 bg-[#35408e] px-4 py-10 sm:px-6 sm:py-8 lg:px-8">
+      <section className="border-y-2 border-yellow-900 bg-[#35408e] px-4 py-10 sm:px-6 sm:py-8 lg:px-8">
         <div className="mx-auto max-w-3xl">
           <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-white">
             Error
